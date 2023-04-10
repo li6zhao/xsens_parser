@@ -324,12 +324,3 @@ class MvnxFileParser:
 
         with open(file_location, 'wb') as handle:
             pickle.dump(self, handle, protocol=pickle.HIGHEST_PROTOCOL)
-        #pass
-        
-        
-        
-# http://www.akjava.com/demo/bvhplayer/
-# https://experiments.withgoogle.com/bvh-player
-
-# https://temugeb.github.io/repository.html
-    
