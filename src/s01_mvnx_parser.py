@@ -29,8 +29,7 @@ class MvnxFileParser:
                          'processingQuality' : soup_subject['processingQuality'],
                          #'originalFilename' : soup_subject['originalFilename'],
                          'start_frame_global' : None,
-                         'end_frame_global' : None,
-                         'frame_ind_global' : None
+                         'end_frame_global' : None
                          }
         
         
@@ -210,6 +209,10 @@ class MvnxFileParser:
                 
                 self.metadata['start_frame_global'] = 6 * int(quotient[full_cycle_ind]) - full_cycle_ind
                 self.metadata['end_frame_global'] = self.metadata['start_frame_global'] + (self.metadata['total_recording_frames'] - 1)
+        
+        # only keep at max 7 frames' ms
+        self.metadata['frame_ms_max_7'] = self.metadata['frame_ms'][:min(7, self.metadata['total_recording_frames'])]
+        del self.metadata['frame_ms']
                 
                 
  
